@@ -1,0 +1,51 @@
+---
+title: "Anàlisi dades enquesta"
+author: "Iker González"
+output:
+  BiocStyle::html_document:
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Lectura de dades
+
+Comencem per importar les dades
+
+```{r}
+dades <- read.csv("Cuestionario.csv")
+```
+
+veiem quina informació tenim a les dades
+
+```{r}
+head(dades)
+names(dades)[1] <- "edad"
+names(dades)
+```
+
+```{r}
+str(dades)
+```
+
+Veiem que n'hi ha algunes variables que tenen dades en blanc. Hem de recodificar
+
+```{r}
+dades$metodo[dades$metodo==""] <- NA
+dades$has_aprendido[dades$has_aprendido==""] <- NA
+```
+
+Google Form et torna els gràfics dels resultats de les preguntes. Ara ens interesa fer un anàlisi per grups d'edat. Això  és fàcil amb R perquè hi ha una llibreria que ho fa.
+
+```{r}
+library(compareGroups)
+mod <-compareGroups(edad ~ nivel_escuelas + importancia_ambito + extraescolar + videojuego +
+                practica + tipo_videojuego + plataforma + videojuego_ambito, data = dades)
+```
+
+```{r}
+export2md(createTable(mod))
+```
