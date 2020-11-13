@@ -641,19 +641,24 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Anàlisi dades enquesta</h1>
 <p class="author-name">Iker González</p>
-<h4 class="date">26 octubre 2020</h4>
+<h4 class="date">3 noviembre 2020</h4>
 
 </div>
 
 <h1>Contents</h1>
 <div id="TOC">
 <ul>
-<li><a href="#lectura-de-dades"><span class="toc-section-number">1</span> Lectura de dades</a></li>
+<li><a href="#introduccio"><span class="toc-section-number">1</span> Introducció</a></li>
+<li><a href="#lectura-de-dades"><span class="toc-section-number">2</span> Lectura de dades</a></li>
 </ul>
 </div>
 
+<div id="introduccio" class="section level1">
+<h1><span class="header-section-number">1</span> Introducció</h1>
+<p>Aquest document conté l’anàlisi estadística de l’enquesta del treball de recerca titolat: “Pot un videojoc ajudar a aprendre idiomes?” que he fet a l’institut Enric Borràs.</p>
+</div>
 <div id="lectura-de-dades" class="section level1">
-<h1><span class="header-section-number">1</span> Lectura de dades</h1>
+<h1><span class="header-section-number">2</span> Lectura de dades</h1>
 <p>Comencem per importar les dades</p>
 <pre class="r"><code>dades &lt;- read.csv(&quot;Cuestionario.csv&quot;)</code></pre>
 <p>veiem quina informació tenim a les dades</p>
@@ -798,7 +803,7 @@ dades$has_aprendido[dades$has_aprendido==&quot;&quot;] &lt;- NA</code></pre>
 <pre class="r"><code>export2md(createTable(mod))</code></pre>
 <table class="table table-striped table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-6">Table 1: </span>Summary descriptives table by groups of `edad’
+(#tab:unnamed-chunk-6)Summary descriptives table by groups of `edad’
 </caption>
 <thead>
 <tr>
@@ -1286,6 +1291,7 @@ Ordenador
 </tr>
 </tbody>
 </table>
+<pre class="r"><code>export2word(createTable(mod), file = &quot;tabla.doc&quot;)</code></pre>
 </div>
 
 

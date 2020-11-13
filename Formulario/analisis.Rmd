@@ -10,6 +10,9 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Introducció
+
+Aquest document conté l'anàlisi estadística de l'enquesta del treball de recerca titolat: "Pot un videojoc ajudar a aprendre idiomes?" que he fet a l'institut Enric Borràs.
 
 # Lectura de dades
 
@@ -48,4 +51,8 @@ mod <-compareGroups(edad ~ nivel_escuelas + importancia_ambito + extraescolar + 
 
 ```{r}
 export2md(createTable(mod))
+```
+
+```{r}
+export2word(createTable(mod), file = "tabla.doc")
 ```
